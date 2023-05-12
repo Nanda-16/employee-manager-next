@@ -8,7 +8,7 @@ export const metadata = {
   description: 'Employee Manangement application',
 }
 
-export default function RootLayout({ children }) {
+export default function HomeLayout({ children }) {
   return (
     <html lang="en">
       <body className={inconsolata.className}>

@@ -7,10 +7,10 @@ export default function Register() {
         <>
             <Container className="flex flex-col justify-center items-center">
                 <Card className="mx-3 sm:mx-auto sm:my-0">
-                    <CardHead className="bg-white border-none pt-5 text-center text-xl md:text-2xl">
+                    <CardHead className="bg-white border-none pt-5 text-center text-xl md:text-2xl mt-20 sm:mt-10">
                         WELCOME
                     </CardHead>
-                    <CardBody className="px-10 lg:px-20 lg:pb-8">
+                    <CardBody className="px-10 pb-5">
                         <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
                             <div className="mb-12 md:mb-0 md:w-9/12 lg:w-6/12 xl:w-6/12">
                                 <form className="w-full max-w-md mt-3">

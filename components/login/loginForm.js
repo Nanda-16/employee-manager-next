@@ -7,10 +7,10 @@ export default function LoginForm() {
         <>
             <Container className="flex flex-col justify-center items-center">
                 <Card className="mx-3 sm:mx-auto sm:my-0">
-                    <CardHead className="bg-white border-none pt-5 text-center text-xl md:text-2xl">
+                    <CardHead className="bg-white border-none pt-5 text-center text-xl md:text-2xl mt-20 sm:mt-10">
                         WELCOME BACK
                     </CardHead>
-                    <CardBody className="px-10">
+                    <CardBody className="px-10 pb-5">
                         <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
                             <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-8/12 md:shrink-0 lg:w-5/12 xl:w-5/12">
                                 <Image src="/images/login.png" alt="login" width={300} height={10} />
