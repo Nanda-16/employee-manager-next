@@ -4,6 +4,7 @@ import { Dancing_Script } from 'next/font/google';
 const dancingScript = Dancing_Script({ subsets: ['latin'] });
 
 import { Inconsolata } from 'next/font/google'
+import Link from "next/link";
 const yanoneKaffeesatz = Inconsolata({ subsets: ['latin'] })
 
 const style = {
@@ -75,9 +76,9 @@ export const NavbarCollapse = ({ children }) => {
 
 
 export const NavbarHead = ({ children, href }) => (
-    <a href={href} className={`${dancingScript.className} ${style.head}`}>
+    <Link href={href} className={`${dancingScript.className} ${style.head}`}>
         <strong>{children}</strong>
-    </a>
+    </Link>
 );
 
 export const NavbarNav = ({ children, orientation }) => (
@@ -87,7 +88,7 @@ export const NavbarNav = ({ children, orientation }) => (
 export const NavbarItem = ({ children }) => <li className={style.item}>{children}</li>;
 
 export const NavbarLink = ({ children, href, active, activeClass }) => (
-    <a href={href} className={active ? activeClass : ''}>
-        {children}
-    </a>
+    <Link href={href} className={active ? activeClass : ''} >
+            {children}
+    </Link>
 );

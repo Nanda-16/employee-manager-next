@@ -7,7 +7,7 @@ export default function LoginForm() {
         <>
             <Container className="flex flex-col justify-center items-center">
                 <Card className="mx-3 sm:mx-auto sm:my-0">
-                    <CardHead className="bg-white border-none pt-5 text-center text-xl md:text-2xl mt-20 sm:mt-10">
+                    <CardHead className="bg-white border-none pt-5 text-center text-lg sm:text-xl md:text-2xl lg:text-3xl mt-20 sm:mt-28 md:mt-10">
                         WELCOME BACK
                     </CardHead>
                     <CardBody className="px-10 pb-5">
