@@ -7,7 +7,7 @@ const styles = {
     action: `col-start-5 col-end-8 text-end`,
 };
 
-export const Card = ({ children, className }) => {
+const Card = ({ children, className }) => {
     return (
         <div className={`${className} ${styles.card}`}>
             {children}
@@ -15,7 +15,7 @@ export const Card = ({ children, className }) => {
     );
 };
 
-export const CardHead = ({ children, className }) => {
+const CardHeader = ({ children, className }) => {
     return (
         <div className={`${className} ${styles.head}`}>
             {children}
@@ -23,7 +23,7 @@ export const CardHead = ({ children, className }) => {
     );
 };
 
-export const CardTitle = ({ children, className }) => {
+const CardTitle = ({ children, className }) => {
     return (
         <div className={`${className} ${styles.title}`}>
             {children}
@@ -31,7 +31,7 @@ export const CardTitle = ({ children, className }) => {
     );
 };
 
-export const CardSubTitle = ({ children, className }) => {
+const CardSubTitle = ({ children, className }) => {
     return (
         <div className={`${className} ${styles.subtitle}`}>
             {children}
@@ -39,7 +39,7 @@ export const CardSubTitle = ({ children, className }) => {
     );
 };
 
-export const CardAction = ({ children, className }) => {
+const CardAction = ({ children, className }) => {
     return (
         <div className={`${className} ${styles.action}`}>
             {children}
@@ -47,10 +47,18 @@ export const CardAction = ({ children, className }) => {
     );
 };
 
-export const CardBody = ({ children, className }) => {
+const CardBody = ({ children, className }) => {
     return (
         <div className={`${className} ${styles.body}`}>
             {children}
         </div>
     );
 };
+
+Card.Body = CardBody;
+Card.Header = CardHeader;
+Card.Title = CardTitle;
+Card.SubTitle = CardSubTitle;
+Card.Action = CardAction;
+
+export default Card;

@@ -1,9 +1,27 @@
 'use client';
-import { usePathname } from 'next/navigation';
-import { Navbar, NavbarCollapse, NavbarHead, NavbarItem, NavbarLink, NavbarNav, NavbarToggler } from "../navbar";
+import { usePathname } from 'next/router';
+import { useRouter } from 'next/navigation';
+import { Navbar, NavbarCollapse, NavbarHead, NavbarLink, NavbarNav, NavbarToggler } from '../navbar';
 
 export default function Header() {
-    const pathname = usePathname();
+    // const router = useRouter();
+    // console.log(router, "fgfgfgfgf");
+    // const pathname = "/home"
+
+    const home = [
+        { name: 'Home', href: '/home' },
+        { name: 'Employees', href: '/home/employees' },
+        { name: 'Designation', href: '/home/designations' },
+    ]
+
+    const user = [
+        { name: 'Welcome User Name', href: '/home' },
+    ]
+
+    const logout = [
+        { name: 'Logout', href: '/' },
+    ]
+
     return (
         <>
             <Navbar className="bg-violet-600 text-white">
@@ -11,25 +29,13 @@ export default function Header() {
                 <NavbarToggler />
                 <NavbarCollapse>
                     <NavbarNav orientation="start">
-                        <NavbarItem>
-                            <NavbarLink href="/home" activeClass="underline" active={pathname === "/home"}>Home</NavbarLink>
-                        </NavbarItem>
-                        <NavbarItem>
-                            <NavbarLink href="/home/employees" activeClass="underline" active={pathname === "/home/employees"}>Employee</NavbarLink>
-                        </NavbarItem>
-                        <NavbarItem>
-                            <NavbarLink href="/home/designations" activeClass="underline" active={pathname === "/home/designations"}>Designation</NavbarLink>
-                        </NavbarItem>
+                        <NavbarLink navLinks={home} />
                     </NavbarNav>
                     <NavbarNav orientation="middle">
-                        <NavbarItem>
-                            <NavbarLink href="/home">Welcome User Name</NavbarLink>
-                        </NavbarItem>
+                        <NavbarLink navLinks={user} />
                     </NavbarNav>
                     <NavbarNav orientation="end">
-                        <NavbarItem>
-                            <NavbarLink href="/">Logout</NavbarLink>
-                        </NavbarItem>
+                        <NavbarLink navLinks={logout} />
                     </NavbarNav>
                 </NavbarCollapse>
             </Navbar>

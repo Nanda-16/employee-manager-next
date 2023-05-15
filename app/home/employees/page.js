@@ -1,5 +1,5 @@
-import { Card, CardAction, CardBody, CardHead, CardSubTitle, CardTitle } from "@/components/card"
-import { Container } from "@/components/container"
+import Card from "@/components/card"
+import  Container  from "@/components/container"
 import { Table, TableBody, TableRow } from "@/components/table"
 import Link from "next/link"
 
@@ -24,19 +24,19 @@ function Employee() {
   return (
     <>
       <Container className="">
-        <Card className="px-3">
-          <CardHead className="bg-white border-none grid grid-cols-7 gap-0">
-            <CardTitle className="">Employees</CardTitle>
-            <CardSubTitle className="">Total 10 employees</CardSubTitle>
-            <CardAction className="">
+        <Card className="px-3 pt-2 mt-4">
+          <Card.Header className="bg-white border-none grid grid-cols-7 gap-0">
+            <Card.Title className="">Employees</Card.Title>
+            <Card.SubTitle className="">Total 10 employees</Card.SubTitle>
+            <Card.Action className="">
               <Link href="home/employees/create"
                 className="inline-block rounded border border-violet-600 px-4 sm:px-8 py-1 font-medium uppercase leading-normal text-violet-600 transition duration-150 ease-in-out hover:bg-violet-100 hover:shadow-[0_8px_9px_-4px_rgba(124 58 237,0.3),0_4px_18px_0_rgba(124 58 237,0.2)] focus:bg-violet-100 focus:shadow-[0_8px_9px_-4px_rgba(124 58 237,0.3),0_4px_18px_0_rgba(124 58 237,0.2)] focus:outline-none focus:ring-0 active:bg-violet-100 active:shadow-[0_8px_9px_-4px_rgba(124 58 237,0.3),0_4px_18px_0_rgba(124 58 237,0.2)]"
               >
                 + Add
               </Link>
-            </CardAction>
-          </CardHead>
-          <CardBody>
+            </Card.Action>
+          </Card.Header>
+          <Card.Body>
             <Table columnHeads={tableHeads}>
               {employee?.length > 0 && employee?.map((employee, index) => (
                 <TableBody>
@@ -56,7 +56,7 @@ function Employee() {
                 </TableBody>
               ))}
             </Table>
-          </CardBody>
+          </Card.Body>
         </Card>
       </Container>
     </>
