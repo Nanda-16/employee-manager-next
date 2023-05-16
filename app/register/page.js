@@ -1,7 +1,7 @@
 import Button from "@/components/button";
 import Card from "@/components/card";
 import Container from "@/components/container";
-import { FormField, FormInput, FormLabel } from "@/components/form";
+import FormField from "@/components/form";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -23,22 +23,22 @@ export default function Register() {
                             <div className="mb-12 md:mb-0 md:w-9/12 lg:w-6/12 xl:w-6/12">
                                 <form className="w-full max-w-md mt-3">
                                     <FormField>
-                                        <FormLabel htmlFor="registerFullName">
+                                        <FormField.Label htmlFor="registerFullName">
                                             Full Name
-                                        </FormLabel>
-                                        <FormInput id="registerFullName" type="text" required />
+                                        </FormField.Label>
+                                        <FormField.Input id="registerFullName" type="text" required />
                                     </FormField>
                                     <FormField>
-                                        <FormLabel htmlFor="registerEmail">
+                                        <FormField.Label htmlFor="registerEmail">
                                             Email
-                                        </FormLabel>
-                                        <FormInput id="registerEmail" type="email" required />
+                                        </FormField.Label>
+                                        <FormField.Input id="registerEmail" type="email" required />
                                     </FormField>
                                     <FormField>
-                                        <FormLabel htmlFor="registerPassword">
+                                        <FormField.Label htmlFor="registerPassword">
                                             Password
-                                        </FormLabel>
-                                        <FormInput id="registerPassword" type="password" required />
+                                        </FormField.Label>
+                                        <FormField.Input id="registerPassword" type="password" required />
                                     </FormField>
                                     <div className="text-center lg:text-right mt-3">
                                         <Button type="submit" size="md">Register</Button>

@@ -1,4 +1,3 @@
-
 const styles = {
     table: {
         main: `flex flex-col overflow-x-auto`,
@@ -14,7 +13,7 @@ const styles = {
     tbodyrow: `whitespace-nowrap px-3 py-3`,
 };
 
-export const Table = ({ children, className, columnHeads }) => {
+const Table = ({ children, className, columnHeads }) => {
     return (
         <div className={styles.table.main}>
             <div className={styles.table.sub}>
@@ -39,7 +38,7 @@ export const Table = ({ children, className, columnHeads }) => {
     );
 };
 
-export const TableBody = ({ children, className }) => {
+const TableBody = ({ children, className }) => {
     return (
         <tbody className={className}>
             <tr>{children}</tr>
@@ -47,8 +46,12 @@ export const TableBody = ({ children, className }) => {
     );
 };
 
-export const TableRow = ({ children, className }) => {
+const TableRow = ({ children, className }) => {
     return (
         <td className={`${className} ${styles.tbodyrow}`}>{children}</td>
     );
 };
+
+Table.Body = TableBody;
+Table.Row = TableRow;
+export default Table;

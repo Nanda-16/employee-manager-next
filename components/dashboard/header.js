@@ -1,12 +1,7 @@
 'use client';
-import { usePathname } from 'next/router';
-import { useRouter } from 'next/navigation';
 import { Navbar, NavbarCollapse, NavbarHead, NavbarLink, NavbarNav, NavbarToggler } from '../navbar';
 
 export default function Header() {
-    // const router = useRouter();
-    // console.log(router, "fgfgfgfgf");
-    // const pathname = "/home"
 
     const home = [
         { name: 'Home', href: '/home' },

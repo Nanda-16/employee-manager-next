@@ -1,41 +1,54 @@
 const styles = {
-    btn: `focus:outline-none text-center m-1 `,
+    btn: `focus:outline-none text-centerfont-medium`,
     variant: {
-        default: `text-white bg-violet-600 hover:bg-violet-500 hover:border hover:border-violet-600`,
-        primary: `text-white bg-violet-600 hover:bg-violet-400`,
-        secondary: `hover:text-white bg-neutral-200 hover:bg-neutral-400`,
-        success: `text-white bg-green-600 hover:bg-green-500 hover:border hover:border-green-600`,
-        danger: `text-white bg-red-600 hover:bg-red-500 hover:border hover:border-red-600`,
+        default: `text-white m-1 bg-violet-600 hover:bg-violet-500 hover:border hover:border-violet-600 rounded`,
+        primary: `text-white m-1 bg-violet-600 hover:bg-violet-400 rounded`,
+        outlineprimary: `m-1 text-violet-600 border border-violet-600 hover:bg-violet-100 rounded`,
+        iconPrimary: `text-white bg-violet-600 hover:bg-violet-400`,
+        secondary: `m-1 hover:text-white bg-neutral-200 hover:bg-neutral-400 rounded`,
+        success: `m-1 text-white bg-green-600 hover:bg-green-500 hover:border hover:border-green-600 rounded`,
+        danger: `m-1 text-white bg-red-600 hover:bg-red-500 hover:border hover:border-red-600 rounded`,
+        iconDanger: `text-white bg-red-600 hover:bg-red-500`,
     },
     size: {
-        default: `font-medium rounded-lg text-sm px-5 py-2.5`,
-        sm: `font-medium rounded-lg text-xs px-3 py-2`,
-        md: `font-medium rounded-lg text-base px-5 py-3`,
-        lg: `font-medium rounded-lg text-lg px-6 py-3`,
+        default: `text-base sm:px-4 md:px-6 px-2 py-2`,
+        sm: `md:text-base text-sm sm:px-3 md:px-5 px-2 py-1`,
+        lg: `md:text-lg text-base sm:text-sm sm:px-4 md:px-6 px-3 py-3`,
+        icon: `text-sm p-1`,
     }
 }
 
-const Button = ({ children, variant, className, ...props }) => {
+const Button = ({ children, variant, size, className, ...props }) => {
     var color = styles.variant.default;
     if (variant === 'primary') {
         color = styles.variant.primary;
+    } else if (variant === 'outline-primary') {
+        color = styles.variant.outlineprimary;
     } else if (variant === 'secondary') {
         color = styles.variant.secondary;
     } else if (variant === 'success') {
         color = styles.success;
     } else if (variant === 'danger') {
-        color = styles.danger;
+        color = styles.variant.danger;
+    } else if (variant === 'icon') {
+        color = styles.variant.iconPrimary;
+    } else if (variant === 'danger-icon') {
+        color = styles.variant.iconDanger;
     }
-    var size = styles.size.default;
+
+    var btnsize = styles.size.default;
     if (size === 'sm') {
-        size = styles.size.sm;
-    } else if (size === 'md') {
-        size = styles.size.md;
+        btnsize = styles.size.sm;
     } else if (size === 'lg') {
-        size = styles.lg;
+        btnsize = styles.size.lg;
+    } else if (variant === 'icon') {
+        btnsize = styles.size.icon;
+    } else if (variant === 'danger-icon') {
+        btnsize = styles.size.icon;
     }
+
     return (
-        <button className={`${className} ${styles.btn} ${color} ${size}`} {...props}>{children}</button>
+        <button className={`${className} ${styles.btn} ${color} ${btnsize}`} {...props}>{children}</button>
     )
 }
 

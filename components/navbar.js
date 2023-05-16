@@ -1,12 +1,10 @@
 'use client';
 import { createContext, useContext, useState } from "react";
-import { Dancing_Script } from 'next/font/google';
-const dancingScript = Dancing_Script({ subsets: ['latin'] });
-
-import { Inconsolata } from 'next/font/google'
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRouter } from "next/router";
+import { Dancing_Script } from 'next/font/google';
+
+const dancingScript = Dancing_Script({ subsets: ['latin'] });
 
 const style = {
     navbar: `px-4 py-2 mb-10 sm:mb-0 shadow w-full lg:flex lg:flex-row lg:items-center lg:justify-start fixed top-0`,
@@ -87,7 +85,6 @@ export const NavbarNav = ({ children, orientation }) => (
 
 export const NavbarLink = ({ navLinks }) => {
     const pathname = usePathname();
-    // console.log(pathname, ':pathname')
     return (
         <>
             {navLinks.map((link, index) => {

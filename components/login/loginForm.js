@@ -2,8 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Container from "../container";
 import Card from "../card";
-import { FormField, FormInput, FormLabel } from "../form";
 import Button from "../button";
+import FormField from "../form";
+
 export default function LoginForm() {
     return (
         <>
@@ -20,22 +21,20 @@ export default function LoginForm() {
                             <div className="mb-12 md:mb-0 md:w-9/12 lg:w-6/12 xl:w-6/12">
                                 <form className="w-full max-w-md mt-3">
                                     <FormField>
-                                        <FormLabel htmlFor="loginEmail">
+                                        <FormField.Label htmlFor="loginEmail">
                                             Email
-                                        </FormLabel>
-                                        <FormInput id="loginEmail" type="email" required />
+                                        </FormField.Label>
+                                        <FormField.Input id="loginEmail" type="email" required />
                                     </FormField>
                                     <FormField>
-                                        <FormLabel htmlFor="loginPassword">
+                                        <FormField.Label htmlFor="loginPassword">
                                             Password
-                                        </FormLabel>
-                                        <FormInput minLength={8} id="loginPassword" type="password" required />
+                                        </FormField.Label>
+                                        <FormField.Input minLength={8} id="loginPassword" type="password" required />
                                     </FormField>
                                     <div className="mb-6 flex items-center justify-end">
                                         <div className="flex">
-                                            <FormInput
-                                                className="mt-1 me-1"
-                                                type="checkbox" value="" id="exampleCheck2" />
+                                            <FormField.Input className="mt-1 me-1" type="checkbox" id="exampleCheck2" />
                                             <label className="hover:cursor-pointer" htmlFor="exampleCheck2">
                                                 Remember me
                                             </label>

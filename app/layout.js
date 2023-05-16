@@ -12,7 +12,7 @@ export default function HomeLayout({ children }) {
   return (
     <html lang="en">
       <body className={inconsolata.className}>
-        <Header/>
+        <Header />
         {children}
       </body>
     </html>

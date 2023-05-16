@@ -19,13 +19,6 @@
 body {
   overflow: auto;
   color: rgb(var(--foreground-rgb));
-  /* background: rgb(121, 152, 201);
-  background: linear-gradient(
-    0deg,
-    rgba(121, 152, 201, 1) 0%,
-    rgba(30, 60, 104, 1) 100%
-  ); */
-  /* background: rgb(163 163 163 / 0.1); */
   margin: 0;
   padding: 0;
 }

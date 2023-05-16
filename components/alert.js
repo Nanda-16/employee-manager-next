@@ -5,6 +5,7 @@ import AlertClose from '../../public/images/alert_close.png'
 
 export const Alert = ({ variant, title, message }) => {
     const [colorStyles, setColorStyles] = useState({})
+    
     useEffect(() => {
         if (variant == 'primary') {
             const styles = {
