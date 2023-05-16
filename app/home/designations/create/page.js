@@ -13,7 +13,7 @@ export default function CreateDesignation() {
     const handleInput = (e) => {
         const { name, value, } = e.target;
         setData({ ...data, [name]: value });
-        console.log(data, data?.gender, ":dataaaa");
+        console.log(data,":dataaaa");
     }
     
     return (

@@ -1,9 +1,12 @@
+'use client';
 import Button from "@/components/button";
 import Card from "@/components/card";
 import Container from "@/components/container";
 import FormField from "@/components/form";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export const metadata = {
     title: 'Register - Employee Mananager',
@@ -11,6 +14,33 @@ export const metadata = {
 }
 
 export default function Register() {
+
+    const [data, setData] = useState({
+        full_name: "",
+        email: "",
+        password: "",
+    });
+
+    const router = useRouter();
+
+    const handleInput = (e) => {
+        const { name, value, } = e.target;
+        setData({ ...data, [name]: value });
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(data, 'register')
+        if (data.full_name && data.email && data.password) {
+            router.push('/home')
+            setData({
+                full_name: "",
+                email: "",
+                password: "",
+            });
+        }
+    }
+
     return (
         <>
             <Container className="flex flex-col justify-center items-center">
@@ -21,24 +51,24 @@ export default function Register() {
                     <Card.Body className="px-10 pb-5">
                         <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
                             <div className="mb-12 md:mb-0 md:w-9/12 lg:w-6/12 xl:w-6/12">
-                                <form className="w-full max-w-md mt-3">
+                                <form className="w-full max-w-md mt-3" onSubmit={handleSubmit}>
                                     <FormField>
                                         <FormField.Label htmlFor="registerFullName">
                                             Full Name
                                         </FormField.Label>
-                                        <FormField.Input id="registerFullName" type="text" required />
+                                        <FormField.Input id="registerFullName" type="text" name="full_name" value={data?.full_name} onChange={handleInput} required />
                                     </FormField>
                                     <FormField>
                                         <FormField.Label htmlFor="registerEmail">
                                             Email
                                         </FormField.Label>
-                                        <FormField.Input id="registerEmail" type="email" required />
+                                        <FormField.Input id="registerEmail" type="email" name="email" value={data?.email} onChange={handleInput} required />
                                     </FormField>
                                     <FormField>
                                         <FormField.Label htmlFor="registerPassword">
                                             Password
                                         </FormField.Label>
-                                        <FormField.Input id="registerPassword" type="password" required />
+                                        <FormField.Input id="registerPassword" type="password" minLength={8} name="password" value={data?.password} onChange={handleInput} required />
                                     </FormField>
                                     <div className="text-center lg:text-right mt-3">
                                         <Button type="submit" size="md">Register</Button>
@@ -46,7 +76,7 @@ export default function Register() {
                                             TEMPHas an account?
                                             <Link
                                                 href="/"
-                                                className="text-red-600 transition duration-150 ease-in-out hover:text-red-600 focus:text-red-600 active:text-danger-700"
+                                                className="text-red-600 transition duration-150 ease-in-out hover:text-red-400 focus:text-red-400 outline-none active:text-danger-700"
                                             >
                                                 Login
                                             </Link>

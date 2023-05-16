@@ -1,11 +1,39 @@
+'use client';
 import Image from "next/image";
 import Link from "next/link";
 import Container from "../container";
 import Card from "../card";
 import Button from "../button";
 import FormField from "../form";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
+
+    const [data, setData] = useState({
+        email: "",
+        password: "",
+    });
+
+    const router = useRouter();
+
+    const handleInput = (e) => {
+        const { name, value, } = e.target;
+        setData({ ...data, [name]: value });
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(data, 'login')
+        if (data.email && data.password) {
+            router.push('/home')
+            setData({
+                email: "",
+                password: "",
+            });
+        }
+    }
+
     return (
         <>
             <Container className="flex flex-col justify-center items-center">
@@ -19,18 +47,18 @@ export default function LoginForm() {
                                 <Image src="/images/login.png" alt="login" width={300} height={10} />
                             </div>
                             <div className="mb-12 md:mb-0 md:w-9/12 lg:w-6/12 xl:w-6/12">
-                                <form className="w-full max-w-md mt-3">
+                                <form className="w-full max-w-md mt-3" onSubmit={handleSubmit}>
                                     <FormField>
                                         <FormField.Label htmlFor="loginEmail">
                                             Email
                                         </FormField.Label>
-                                        <FormField.Input id="loginEmail" type="email" required />
+                                        <FormField.Input id="loginEmail" type="email" name="email" onChange={handleInput} value={data?.email} required />
                                     </FormField>
                                     <FormField>
                                         <FormField.Label htmlFor="loginPassword">
                                             Password
                                         </FormField.Label>
-                                        <FormField.Input minLength={8} id="loginPassword" type="password" required />
+                                        <FormField.Input minLength={8} id="loginPassword" type="password" onChange={handleInput} name="password" value={data?.password} required />
                                     </FormField>
                                     <div className="mb-6 flex items-center justify-end">
                                         <div className="flex">
@@ -46,7 +74,7 @@ export default function LoginForm() {
                                             Dont TEMPhas an account?
                                             <Link
                                                 href="/register"
-                                                className="text-red-600 transition duration-150 ease-in-out hover:text-red-600 focus:text-red-600 active:text-danger-700"
+                                                className="text-red-600 transition duration-150 ease-in-out hover:text-red-400 focus:text-red-400 outline-none active:text-danger-700"
                                             >
                                                 Register
                                             </Link>
