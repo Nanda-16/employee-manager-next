@@ -34,6 +34,12 @@ export default function CreateEmployee() {
         }
         console.log(data, data?.gender, ":dataaaa");
     }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(data, 'login')
+        setData("");
+    }
     return (
         <>
             <Container  >
@@ -41,7 +47,7 @@ export default function CreateEmployee() {
                     <Card.Header className="bg-white border-none grid grid-cols-7 gap-0">
                         <Card.Title  >Add Employee</Card.Title>
                     </Card.Header>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <Card.Body className="px-4">
                             <FormField>
                                 <FormField.Label htmlFor="employeeFullName">Full Name</FormField.Label>
@@ -74,14 +80,14 @@ export default function CreateEmployee() {
                                     Gender
                                 </FormField.Label>
                                 <div className="flex">
-                                    <FormField.Input type="radio" id="employeeMale" name="gender" value="MALE" onChange={handleInput} />
-                                    <FormField.Label htmlFor="employeeMale">
+                                    <FormField.Input type="radio" id="employeeMale" name="gender" value="MALE" onChange={handleInput} className="mt-1" />
+                                    <FormField.Label htmlFor="employeeMale" className="p-1">
                                         Male
                                     </FormField.Label>
                                 </div>
                                 <div className="flex">
-                                    <FormField.Input type="radio" id="employeeFemale" name="gender" value="FEMALE" onChange={handleInput} />
-                                    <FormField.Label htmlFor="employeeFemale">
+                                    <FormField.Input type="radio" id="employeeFemale" name="gender" value="FEMALE" onChange={handleInput} className="mt-1" />
+                                    <FormField.Label htmlFor="employeeFemale" className="p-1">
                                         Female
                                     </FormField.Label>
                                 </div>
@@ -130,8 +136,8 @@ export default function CreateEmployee() {
                                     Profile Pic
                                 </FormField.Label>
                                 <input id="employeeProfilePic" type="file" className='hidden' accept=".jpg, .png, .jpeg" name="profile_pic" onChange={handleInput} required />
-                                <label htmlFor="employeeProfilePic" className='cursor-pointer flex'>
-                                    <div className="flex bg-neutral-400  text-white rounded p-1">
+                                <label htmlFor="employeeProfilePic" className='cursor-pointer sm:flex'>
+                                    <div className="bg-neutral-400  text-white rounded p-1 flex">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 me-1">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
                                         </svg>
@@ -147,8 +153,8 @@ export default function CreateEmployee() {
                                     Resume
                                 </FormField.Label>
                                 <input id="employeeResume" type="file" className='hidden' accept=".doc, .pdf" name="resume" onChange={handleInput} required />
-                                <label htmlFor="employeeResume" className='cursor-pointer flex md:w-3/4'>
-                                    <div className="flex bg-neutral-400  text-white rounded p-1">
+                                <label htmlFor="employeeResume" className='cursor-pointer sm:flex  md:w-3/4'>
+                                    <div className="bg-neutral-400  text-white rounded p-1 flex">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 me-1">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
                                         </svg>
@@ -161,7 +167,7 @@ export default function CreateEmployee() {
                             </FormField>
                         </Card.Body>
                         <Card.Footer>
-                            <Button type="submit">Register new Employee</Button>
+                            <Button type="submit" variant="primary">Register new Employee</Button>
                             <Link href='/home/employees'>
                                 <Button type="button" variant='secondary'>Cancel</Button>
                             </Link>

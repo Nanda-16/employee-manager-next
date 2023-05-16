@@ -31,7 +31,7 @@ export default function CreateDesignation() {
                             </FormField>
                         </Card.Body>
                         <Card.Footer>
-                            <Button type="submit">Add new Designation</Button>
+                            <Button type="submit" variant="primary">Add new Designation</Button>
                             <Link href='/home/designations'>
                                 <Button type="button" variant='secondary'>Cancel</Button>
                             </Link>

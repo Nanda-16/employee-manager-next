@@ -7,10 +7,11 @@ import { Dancing_Script } from 'next/font/google';
 const dancingScript = Dancing_Script({ subsets: ['latin'] });
 
 const style = {
-    navbar: `px-4 py-2 mb-10 sm:mb-0 shadow w-full lg:flex lg:flex-row lg:items-center lg:justify-start fixed top-0`,
+    navbar: `px-4 py-2 mb-10 sm:mb-0 shadow w-full lg:flex lg:flex-row lg:items-center lg:justify-start fixed top-0 z-10`,
     head: `cursor-pointer font-bold inline-block mr-4 py-1.5 text-2xl md:text-3xl whitespace-nowrap hover:text-violet-200`,
     toggler: `block float-right text-4xl lg:hidden focus:outline-none focus:shadow`,
-    item: `whitespace-pre cursor-pointer px-4 py-2 hover:underline`,
+    item: `whitespace-pre cursor-pointer px-4 py-2`,
+    link: ` hover:underline`,
     collapse:
     {
         default: `border-t border-gray-400 fixed left-0 mt-2 shadow py-2 text-center lg:border-none lg:flex lg:flex-grow lg:items-center lg:mt-0 lg:py-0 lg:relative lg:shadow-none`,
@@ -83,6 +84,10 @@ export const NavbarNav = ({ children, orientation }) => (
     <ul className={style.nav[orientation]}>{children}</ul>
 );
 
+export const NavbarItem = ({ children }) => (
+    <li className={style.item}>{children}</li>
+);
+
 export const NavbarLink = ({ navLinks }) => {
     const pathname = usePathname();
     return (
@@ -91,7 +96,7 @@ export const NavbarLink = ({ navLinks }) => {
                 const isActive = pathname.startsWith(link.href);
 
                 return (
-                    <li className={style.item} key={index + 1}>
+                    <li className={`${style.item} ${style.link}`} key={index + 1}>
                         <Link
                             className={isActive ? 'underline' : ''}
                             href={link.href}

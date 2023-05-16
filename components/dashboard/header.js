@@ -1,20 +1,16 @@
 'use client';
-import { Navbar, NavbarCollapse, NavbarHead, NavbarLink, NavbarNav, NavbarToggler } from '../navbar';
+import { Navbar, NavbarCollapse, NavbarHead, NavbarItem, NavbarLink, NavbarNav, NavbarToggler } from '../navbar';
 
 export default function Header() {
 
     const home = [
-        { name: 'Home', href: '/home' },
+        { name: 'Home', href: '/home#home' },
         { name: 'Employees', href: '/home/employees' },
         { name: 'Designation', href: '/home/designations' },
     ]
 
-    const user = [
-        { name: 'Welcome User Name', href: '/home' },
-    ]
-
     const logout = [
-        { name: 'Logout', href: '/' },
+        { name: 'Logout', href: '#logout' },
     ]
 
     return (
@@ -27,7 +23,7 @@ export default function Header() {
                         <NavbarLink navLinks={home} />
                     </NavbarNav>
                     <NavbarNav orientation="middle">
-                        <NavbarLink navLinks={user} />
+                        <NavbarItem>Welcome User Name</NavbarItem>
                     </NavbarNav>
                     <NavbarNav orientation="end">
                         <NavbarLink navLinks={logout} />

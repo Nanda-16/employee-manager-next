@@ -71,7 +71,7 @@ export default function Register() {
                                         <FormField.Input id="registerPassword" type="password" minLength={8} name="password" value={data?.password} onChange={handleInput} required />
                                     </FormField>
                                     <div className="text-center lg:text-right mt-3">
-                                        <Button type="submit" size="md">Register</Button>
+                                        <Button type="submit" variant="primary">Register</Button>
                                         <p className="mb-0 mt-2 pt-1 text-sm font-semibold">
                                             TEMPHas an account?
                                             <Link

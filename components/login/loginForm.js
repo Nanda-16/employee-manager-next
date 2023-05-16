@@ -69,7 +69,7 @@ export default function LoginForm() {
                                         </div>
                                     </div>
                                     <div className="text-center lg:text-left">
-                                        <Button type="submit" size="md">Login</Button>
+                                        <Button type="submit" variant="primary">Login</Button>
                                         <p className="mb-0 mt-2 pt-1 text-sm font-semibold">
                                             Dont TEMPhas an account?
                                             <Link
