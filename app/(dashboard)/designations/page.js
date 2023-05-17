@@ -94,11 +94,11 @@ export default function Designation() {
             <Container>
                 {/* table */}
                 <Card className="px-3">
-                    <Card.Header className="bg-white">
+                    <Card.Header className="bg-white border-none grid grid-cols-7 gap-0">
                         <Card.Title>Designations</Card.Title>
                         <Card.SubTitle>Total {designations.length} designations</Card.SubTitle>
                         <Card.Action>
-                            <Link href="home/designations/create">
+                            <Link href="/designations/create">
                                 <Button variant="outline-primary" size="sm">
                                     + Add
                                 </Button>
@@ -113,7 +113,7 @@ export default function Designation() {
                     <Card.Body>
                         <Table columnHeads={tableHeads}>
                             {designations?.length > 0 && designations?.map((designation, index) => (
-                                <Table.Body>
+                                <Table.Body key={index}>
                                     <Table.Row>{index + 1}</Table.Row>
                                     <Table.Row>{designation?.name}</Table.Row>
                                     <Table.Row>

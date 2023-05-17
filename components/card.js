@@ -1,7 +1,7 @@
 
 const styles = {
     card: `rounded shadow mt-10 sm:mt-2 mx-auto mb-2`,
-    head: `border-b p-2 text-lg bg-neutral-50  border-none grid grid-cols-7 gap-0`,
+    head: `border-b p-2 text-lg bg-neutral-50`,
     title: 'col-span-4 text-lg sm:text-2xl font-bold',
     subtitle: `col-start-1 col-span-3 font-semibold text-sm sm:text-base text-slate-300`,
     action: `col-start-5 col-end-8 text-end`,

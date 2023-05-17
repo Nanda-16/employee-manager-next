@@ -62,8 +62,8 @@ export default function LoginForm() {
                                     </FormField>
                                     <div className="mb-6 flex items-center justify-end">
                                         <div className="flex">
-                                            <FormField.Input className="mt-1 me-1" type="checkbox" id="exampleCheck2" />
-                                            <label className="hover:cursor-pointer" htmlFor="exampleCheck2">
+                                            <FormField.Input className="mt-1 me-1" type="checkbox" id="remember" />
+                                            <label className="hover:cursor-pointer" htmlFor="remember">
                                                 Remember me
                                             </label>
                                         </div>
@@ -71,10 +71,10 @@ export default function LoginForm() {
                                     <div className="text-center lg:text-left">
                                         <Button type="submit" variant="primary">Login</Button>
                                         <p className="mb-0 mt-2 pt-1 text-sm font-semibold">
-                                            Dont TEMPhas an account?
+                                            Dont has an account?
                                             <Link
                                                 href="/register"
-                                                className="text-red-600 transition duration-150 ease-in-out hover:text-red-400 focus:text-red-400 outline-none active:text-danger-700"
+                                                className="text-red-600 hover:text-red-400 focus:text-red-400 outline-none active:text-danger-700"
                                             >
                                                 Register
                                             </Link>

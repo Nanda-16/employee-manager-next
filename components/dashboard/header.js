@@ -4,9 +4,9 @@ import { Navbar, NavbarCollapse, NavbarHead, NavbarItem, NavbarLink, NavbarNav, 
 export default function Header() {
 
     const home = [
-        { name: 'Home', href: '/home#home' },
-        { name: 'Employees', href: '/home/employees' },
-        { name: 'Designation', href: '/home/designations' },
+        { name: 'Home', href: '/home' },
+        { name: 'Employees', href: '/employees' },
+        { name: 'Designation', href: '/designations' },
     ]
 
     const logout = [

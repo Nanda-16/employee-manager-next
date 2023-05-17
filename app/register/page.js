@@ -73,10 +73,10 @@ export default function Register() {
                                     <div className="text-center lg:text-right mt-3">
                                         <Button type="submit" variant="primary">Register</Button>
                                         <p className="mb-0 mt-2 pt-1 text-sm font-semibold">
-                                            TEMPHas an account?
+                                            Has an account?
                                             <Link
                                                 href="/"
-                                                className="text-red-600 transition duration-150 ease-in-out hover:text-red-400 focus:text-red-400 outline-none active:text-danger-700"
+                                                className="text-red-600 hover:text-red-400 focus:text-red-400 outline-none active:text-danger-700"
                                             >
                                                 Login
                                             </Link>

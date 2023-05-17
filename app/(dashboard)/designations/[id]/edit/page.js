@@ -37,7 +37,7 @@ export default function EditDesignation({ params }) {
                         </Card.Body>
                         <Card.Footer>
                             <Button type="submit" variant="primary">Update Designation</Button>
-                            <Link href='/home/designations'>
+                            <Link href='/designations'>
                                 <Button type="button" variant='secondary'>Cancel</Button>
                             </Link>
                         </Card.Footer>

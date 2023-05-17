@@ -1,15 +1,15 @@
 import Header from '@/components/dashboard/header'
 
 export const metadata = {
-  title: 'Home - Employee Mananager',
+  title: 'Employee Mananager',
   description: 'Employee Manangement application',
 }
 
-export default function HomeLayout({ children }) {
+export default function DashboardLayout({ children }) {
   return (
-    <>
+    <div>
       <Header />
       {children}
-    </>
+    </div>
   )
 }

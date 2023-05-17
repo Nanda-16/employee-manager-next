@@ -64,12 +64,14 @@ const FormSelect = ({ children, className, ...props }) => {
     );
 };
 
-const FormSelectOption = ({ children, className, ...props }) => {
+const FormSelectOption = ({ options }) => {
     return (
         <>
-            <option className={`${className} ${styles.form.option}`} {...props}>
-                {children}
-            </option>
+            {options.length > 0 && options?.map((option, index) => (
+                <option key={index} className={styles.form.option} value={option.value}>
+                    {option.name}
+                </option>
+            ))}
         </>
     );
 };

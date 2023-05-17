@@ -1,4 +1,4 @@
-import Container from "@/components/container";
+import Container from "@/components/container"
 
 export const metadata = {
   title: 'Home - Employee Mananager',
@@ -8,7 +8,9 @@ export const metadata = {
 export default function Home() {
   return (
     <>
-      <Container>Home</Container>
+      <Container>
+        Welcome 
+      </Container>
     </>
   )
 }

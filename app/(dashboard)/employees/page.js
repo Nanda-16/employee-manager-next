@@ -58,11 +58,11 @@ export default function Employee() {
     <>
       <Container  >
         <Card className="px-3 pt-2 mt-4">
-          <Card.Header className="bg-white">
+          <Card.Header className="bg-white   border-none grid grid-cols-7 gap-0">
             <Card.Title  >Employees</Card.Title>
             <Card.SubTitle  >Total {employees.length} employees</Card.SubTitle>
             <Card.Action  >
-              <Link href="home/employees/create">
+              <Link href="/employees/create">
                 <Button variant="outline-primary" size="sm">
                   + Add
                 </Button>
@@ -77,7 +77,7 @@ export default function Employee() {
           <Card.Body>
             <Table columnHeads={tableHeads}>
               {employees?.length > 0 && employees?.map((employee, index) => (
-                <Table.Body>
+                <Table.Body key={index}>
                   <Table.Row>{index + 1}</Table.Row>
                   <Table.Row>
                     <Image src={user} alt="user profile" height={35} />
@@ -90,7 +90,7 @@ export default function Employee() {
                   <Table.Row>{employee?.email}</Table.Row>
                   <Table.Row>
                     <div className="flex">
-                      <Link href={`/home/employees/${employee?.id}/edit`} className="m-0 p-0">
+                      <Link href={`/employees/${employee?.id}/edit`} className="m-0 p-0">
                         <Button variant="icon-primary" className="rounded p-1 rounded-r-none" title="Edit Employee">
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-5">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
@@ -122,13 +122,15 @@ export default function Employee() {
             <Modal.Body className="text-gray-900">Do you really want to delete {deleteEmployee?.name} ?</Modal.Body>
           </Modal.Content>
           <Modal.Footer>
-            <Button variant="danger"
+            <Button
+              variant="danger"
               type="button"
               onClick={handleDelete}
             >
               Delete
             </Button>
-            <Button variant="secondary"
+            <Button
+              variant="secondary"
               type="button"
               onClick={closeDeleteModal}
             >
