@@ -32,7 +32,7 @@ export default function EditDesignation({ params }) {
                         <Card.Body className="px-4">
                             <FormField>
                                 <FormField.Label htmlFor="name">Name</FormField.Label>
-                                <FormField.Input type="text" id="name" name="full_name" onChange={handleInput} required />
+                                <FormField.Input type="text" id="name" name="name" onChange={handleInput} required />
                             </FormField>
                         </Card.Body>
                         <Card.Footer>
