@@ -1,7 +1,7 @@
 'use client';
 import Card from "@/components/card";
 import Container from "@/components/container";
-import AddEmployeeForm from "@/components/employee/addForm";
+import EmployeeForm from "@/components/employee/employeeForm";
 
 export default function CreateEmployee() {
 
@@ -16,7 +16,7 @@ export default function CreateEmployee() {
                     <Card.Header className="bg-white border-none grid grid-cols-7 gap-0">
                         <Card.Title>Add Employee</Card.Title>
                     </Card.Header>
-                    <AddEmployeeForm onSubmit={handleSubmit} />
+                    <EmployeeForm type="add" onSubmit={handleSubmit} />
                 </Card>
             </Container>
         </>

@@ -3,14 +3,20 @@ import Button from '../button';
 import Link from 'next/link';
 import Card from '../card';
 import FormField from '../form';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function AddEmployeeForm({ onSubmit }) {
-    
+function EmployeeForm({ onSubmit, type, employee }) {
+
     const [data, setData] = useState({});
     const [sameAddress, setSameAddress] = useState(false);
     const [profile, setProfile] = useState('');
     const [resume, setResume] = useState('');
+
+    useEffect(() => {
+        if (type === 'edit') {
+            setData(employee)
+        }
+    }, []);
 
     const handleInput = (e) => {
         const { name, value, type, checked } = e.target;
@@ -37,7 +43,7 @@ function AddEmployeeForm({ onSubmit }) {
         e.preventDefault();
         console.log(data, ":dataaaa");
         onSubmit(data);
-        document.getElementById("addEmployeeForm").reset();
+        document.getElementById("employeeForm").reset();
         setData('');
         setProfile('');
         setResume('');
@@ -54,23 +60,23 @@ function AddEmployeeForm({ onSubmit }) {
 
     return (
         <>
-            <form onSubmit={handleSubmit} id="addEmployeeForm">
+            <form onSubmit={handleSubmit} id="employeeForm">
                 <Card.Body className="px-4">
                     <FormField>
                         <FormField.Label htmlFor="employeeFullName">Full Name</FormField.Label>
-                        <FormField.Input type="text" id="employeeFullName" name="full_name" onChange={handleInput} required />
+                        <FormField.Input type="text" id="employeeFullName" name="name" defaultValue={employee?.name} onChange={handleInput} required />
                     </FormField>
                     <FormField>
                         <FormField.Label htmlFor="employeeJoiningDate">
                             Joining Date
                         </FormField.Label>
-                        <FormField.Input id="employeeJoiningDate" type="date" name="joining_date" onChange={handleInput} required />
+                        <FormField.Input id="employeeJoiningDate" type="date" name="joining_date" defaultValue={employee?.joining_date} onChange={handleInput} required />
                     </FormField>
                     <FormField>
                         <FormField.Label htmlFor="employeeDateOfBirth">
                             Date of Birth
                         </FormField.Label>
-                        <FormField.Input id="employeeDateOfBirth" type="date" name="dob" onChange={handleInput} required />
+                        <FormField.Input id="employeeDateOfBirth" type="date" name="dob" defaultValue={employee?.dob} onChange={handleInput} required />
                     </FormField>
                     <FormField>
                         <FormField.Label htmlFor="employeeDesignation">
@@ -101,25 +107,25 @@ function AddEmployeeForm({ onSubmit }) {
                         <FormField.Label htmlFor="employeeMobileNumber">
                             Mobile Number
                         </FormField.Label>
-                        <FormField.Input id="employeeMobileNumber" type="text" name="mobile_number" onChange={handleInput} required />
+                        <FormField.Input id="employeeMobileNumber" type="text" name="mobile_number" defaultValue={employee?.mobile_number} onChange={handleInput} required />
                     </FormField>
                     <FormField>
                         <FormField.Label htmlFor="employeeLandline">
                             Landline
                         </FormField.Label>
-                        <FormField.Input id="employeeLandline" type="text" name="landline" onChange={handleInput} required />
+                        <FormField.Input id="employeeLandline" type="text" name="landline" defaultValue={employee?.landline} onChange={handleInput} required />
                     </FormField>
                     <FormField>
                         <FormField.Label htmlFor="employeeEmail">
                             Email Address
                         </FormField.Label>
-                        <FormField.Input id="employeeEmail" type="email" name="email" onChange={handleInput} required />
+                        <FormField.Input id="employeeEmail" type="email" name="email" defaultValue={employee?.email} onChange={handleInput} required />
                     </FormField>
                     <FormField>
                         <FormField.Label htmlFor="present_address_id">
                             Present Address
                         </FormField.Label>
-                        <FormField.Textarea id="present_address_id" name="present_address" rows={5} onChange={handleInput} required></FormField.Textarea>
+                        <FormField.Textarea id="present_address_id" name="present_address" rows={5} defaultValue={employee?.present_address} onChange={handleInput} required></FormField.Textarea>
                     </FormField>
                     <FormField>
                         <FormField.Label></FormField.Label>
@@ -134,7 +140,7 @@ function AddEmployeeForm({ onSubmit }) {
                         <FormField.Label htmlFor="permanent_address_id">
                             Permanent Address
                         </FormField.Label>
-                        <FormField.Textarea id="permanent_address_id" name="permanent_address" rows={5} onChange={handleInput} required></FormField.Textarea>
+                        <FormField.Textarea id="permanent_address_id" name="permanent_address" rows={5} defaultValue={employee?.permanent_address} onChange={handleInput} required></FormField.Textarea>
                     </FormField>
                     <FormField>
                         <FormField.Label>
@@ -172,7 +178,9 @@ function AddEmployeeForm({ onSubmit }) {
                     </FormField>
                 </Card.Body>
                 <Card.Footer>
-                    <Button type="submit" variant="primary">Update</Button>
+                    <Button type="submit" variant="primary">
+                        {type === 'add' ? 'Register' : 'Update'}
+                    </Button>
                     <Link href='/employees'>
                         <Button type="button" variant='secondary'>Cancel</Button>
                     </Link>
@@ -182,4 +190,4 @@ function AddEmployeeForm({ onSubmit }) {
     )
 }
 
-export default AddEmployeeForm
+export default EmployeeForm
